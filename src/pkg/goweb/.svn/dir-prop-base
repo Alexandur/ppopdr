@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 60
+_obj
+_testmain.6
+_test
+_testmain.go
+_go_.6
+_gotest_.6
+6.out
+
+END
