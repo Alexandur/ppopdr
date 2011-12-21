@@ -40,5 +40,9 @@ package structs
 	}
 	
 /* COMMENTS */
+	// Hoofd structuur van response van een CREATE
+	type WordpressCommentResponse struct {
+		Status string
+	}
 
 /* USERS */

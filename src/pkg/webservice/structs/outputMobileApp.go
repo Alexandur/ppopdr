@@ -27,3 +27,7 @@ type User struct {
 	Age  int
 }
 
+// Tips toevoeging status response
+type TipResponse struct {
+	Status string
+}

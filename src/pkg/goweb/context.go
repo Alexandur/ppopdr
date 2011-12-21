@@ -4,6 +4,7 @@ import (
 	"http"
 	"os"
 	"strings"
+	"url"
 )
 
 // Object holding details about the request and responses
@@ -67,6 +68,16 @@ func (c *Context) GetRequestContext() string {
 // Gets the context value from the request
 func (c *Context) GetRequest() *http.Request {
 	return c.Request
+}
+
+// Gets the callback value from the request
+func (c *Context) GetReqData() (uv url.Values) {
+	request := c.Request
+	if request.Form == nil {
+		request.ParseForm()
+	}
+
+	return request.Form
 }
 
 // Gets the callback value from the request

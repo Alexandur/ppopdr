@@ -15,21 +15,12 @@ import (
     "io/ioutil"
 	"json"
 	"http"
+	"url"
 )
 
 const URL_WORDPRESS = "http://sil.erwinvd.nl/sil/api/"
 
-type Communication struct{}
-
-func (com *Communication) Bla() {
-
-}
-
-func Bla2() {
-
-}
-
-func CallWordpressApi (cx *goweb.Context, v interface{}, callfunction string, params map[string]string) {
+func CallWordpressApi (cx *goweb.Context, v interface{}, callfunction string, params map[string]string) {	
 	var contents []uint8
 
     client := urlfetch.Client(appengine.NewContext(cx.GetRequest()))
@@ -78,9 +69,10 @@ func parseParams (params map[string]string) string {
 			prefix = "&"
 		}
 		
-		s = s + prefix + key + "=" + value
+		s = s + prefix + key + "=" + url.QueryEscape(value)
 		i++
 	}
 	
 	return s
 }
+
