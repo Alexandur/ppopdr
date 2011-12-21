@@ -15,6 +15,8 @@ func init() {
 	
 	// use the default Go handler
 	http.Handle("/", goweb.DefaultHttpHandler)
+
+// Wat test commentaar om de push te testen. Whoop whoop
 }
 
 
