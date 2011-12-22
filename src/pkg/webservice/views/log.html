@@ -1,0 +1,10 @@
+<html>
+<head>
+	<title>Pagina's bezocht</title>
+</head>
+  <body>
+    {{range .}}
+         <pre>{{html .ViewedBy}} heeft de volgende pagina aangeroepen {{html .Page}}</pre>
+    {{end}}   
+  </body>
+</html>

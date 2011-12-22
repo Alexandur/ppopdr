@@ -1,7 +1,7 @@
 /**
  * Implementeer hier elke REST methode (+restMany methode) voor artikelen
  *
- * @author A. Glansbeek
+ * @author A. Glansbeek en P. Kompier
  * @version 1.0
  * @date 2011-12-18
  */
@@ -17,31 +17,7 @@ import (
 
 type ArticleController struct{}
 
-func (cr *ArticleController) Create(cx *goweb.Context) {
-	reqValues := cx.GetReqData()
-
-	params := map[string]string {
-		"post_id":reqValues.Get("post_id"),
-		"name":reqValues.Get("name"),
-		"email":reqValues.Get("email"),
-		"content":reqValues.Get("content"),
-	}
-	
-	var m structs.WordpressCommentResponse
-	
-	models.CallWordpressApi(cx, &m, "submit_comment", params)
-	
-	cx.RespondWithData(structs.TipResponse{m.Status})
-}
-
-func (cr *ArticleController) Delete(id string, cx *goweb.Context) {
-	cx.RespondWithOK()
-}
-
-func (cr *ArticleController) DeleteMany(cx *goweb.Context) {
-	cx.RespondWithStatus(http.StatusForbidden)
-}
-
+// GET artikel met id [1..n]
 func (cr *ArticleController) Read(id string, cx *goweb.Context) {
 	params := map[string]string {"post_id":id}
 	var m structs.WordpressPost
@@ -58,6 +34,7 @@ func (cr *ArticleController) Read(id string, cx *goweb.Context) {
 	}
 }
 
+// GET alle artikelen
 func (cr *ArticleController) ReadMany(cx *goweb.Context) {
 	var m structs.WordpressPostMany
 	
@@ -71,12 +48,27 @@ func (cr *ArticleController) ReadMany(cx *goweb.Context) {
     cx.RespondWithData(articles)
 }
 
+/**
+ * Onderstaande functies worden nog niet gebruikt. Nog niet nodig gehad.
+ */
+func (cr *ArticleController) Create(cx *goweb.Context) {
+	cx.RespondWithStatus(http.StatusForbidden)
+}
+
+func (cr *ArticleController) Delete(id string, cx *goweb.Context) {
+	cx.RespondWithStatus(http.StatusForbidden)
+}
+
+func (cr *ArticleController) DeleteMany(cx *goweb.Context) {
+	cx.RespondWithStatus(http.StatusForbidden)
+}
+
 func (cr *ArticleController) Update(id string, cx *goweb.Context) {
-	cx.RespondWithData(structs.Article{"1", "Titel1", "Lex", "20111219", 0})
+	cx.RespondWithStatus(http.StatusForbidden)
 }
 
 func (cr *ArticleController) UpdateMany(cx *goweb.Context) {
-	cx.RespondWithData(structs.Article{"1", "Titel1", "Lex", "20111219", 0})
+	cx.RespondWithStatus(http.StatusForbidden)
 }
 
 

@@ -4,7 +4,7 @@
  * 
  * !! Variablen MOETEN met hoofdletter anders pakt JSON encoding het niet  
  *
- * @author A. Glansbeek
+ * @author A. Glansbeek en P. Kompier
  * @version 1.0
  * @date 2011-12-18
  */

@@ -5,7 +5,7 @@
  *
  * !! Variablen MOETEN met hoofdletter anders pakt JSON decoding het niet  
  *
- * @author A. Glansbeek
+ * @author A. Glansbeek en P. Kompier
  * @version 1.0
  * @date 2011-12-18
  */
@@ -44,5 +44,6 @@ package structs
 	type WordpressCommentResponse struct {
 		Status string
 	}
+	
 
 /* USERS */

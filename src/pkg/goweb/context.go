@@ -70,6 +70,11 @@ func (c *Context) GetRequest() *http.Request {
 	return c.Request
 }
 
+// Gets the context value from the request
+func (c *Context) GetResponseWriter() http.ResponseWriter {
+	return c.ResponseWriter
+}
+
 // Gets the callback value from the request
 func (c *Context) GetReqData() (uv url.Values) {
 	request := c.Request
