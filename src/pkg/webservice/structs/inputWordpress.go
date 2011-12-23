@@ -44,6 +44,3 @@ package structs
 	type WordpressCommentResponse struct {
 		Status string
 	}
-	
-
-/* USERS */

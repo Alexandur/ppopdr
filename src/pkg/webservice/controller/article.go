@@ -17,7 +17,14 @@ import (
 
 type ArticleController struct{}
 
-// GET artikel met id [1..n]
+
+/**
+ * GET artikel met id [1..n], retourneer een artikel
+ *
+ * @author A. Glansbeek en P. Kompier
+ * @version 1.0
+ * @date 2011-12-18
+ */
 func (cr *ArticleController) Read(id string, cx *goweb.Context) {
 	params := map[string]string {"post_id":id}
 	var m structs.WordpressPost
@@ -34,7 +41,13 @@ func (cr *ArticleController) Read(id string, cx *goweb.Context) {
 	}
 }
 
-// GET alle artikelen
+/**
+ * Retourneer alle artikelen
+ *
+ * @author A. Glansbeek en P. Kompier
+ * @version 1.0
+ * @date 2011-12-18
+ */
 func (cr *ArticleController) ReadMany(cx *goweb.Context) {
 	var m structs.WordpressPostMany
 	

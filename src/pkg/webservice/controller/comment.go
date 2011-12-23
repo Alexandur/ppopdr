@@ -17,7 +17,13 @@ import (
 
 type CommentController struct{}
 
-// POST comment
+/**
+ * Creert een nieuwe comment (tip)
+ *
+ * @author A. Glansbeek en P. Kompier
+ * @version 1.0
+ * @date 2011-12-18
+ */
 func (cr *CommentController) Create(cx *goweb.Context) {
 	reqValues := cx.GetReqData()
 

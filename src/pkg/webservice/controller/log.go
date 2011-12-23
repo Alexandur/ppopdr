@@ -10,8 +10,6 @@ package controller
 
 import (
 	"goweb"
-    "appengine"
-    "appengine/datastore"
     "http"
     "template"
 	"webservice/models/data"
@@ -31,18 +29,11 @@ type LogController struct{}
  * @date 2011-12-21
  */
 func (cr *LogController) DeleteMany(cx *goweb.Context) {
-	c := appengine.NewContext(cx.GetRequest())
-	pageviews := make([]data.PageView, 0)
-	q := datastore.NewQuery("PageView")
-	
-	keys, err := q.GetAll(c, &pageviews);
+	err := data.DeleteAllLogs(cx.GetRequest())
 	
 	if err != nil {
-    	cx.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
-        return
+    	cx.RespondWithErrorMessage("Verwijderen is niet gelukt", http.StatusInternalServerError)
     }
-    
-	datastore.DeleteMulti(c, keys)
 }
 
 /**
@@ -53,13 +44,10 @@ func (cr *LogController) DeleteMany(cx *goweb.Context) {
  * @date 2011-12-21
  */
 func (cr *LogController) ReadMany(cx *goweb.Context) {
-	c := appengine.NewContext(cx.GetRequest())
-    q := datastore.NewQuery("PageView").Order("-Date").Limit(50)
-    pageviews := make([]data.PageView, 0, 50)
-    
-    if _, err := q.GetAll(c, &pageviews); err != nil {
-    	cx.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
-        return
+	err, pageviews := data.GetLogs(cx.GetRequest())
+	
+    if err != nil {
+    	cx.RespondWithErrorMessage("Kan de lijst met logs entries niet tonen", http.StatusInternalServerError)
     }
      
     if err := logTemplate.Execute(cx.GetResponseWriter(), pageviews); err != nil {

@@ -37,7 +37,7 @@ func CallWordpressApi (cx *goweb.Context, v interface{}, callfunction string, pa
 	url := createURL(callfunction, params)
     client := urlfetch.Client(appengine.NewContext(cx.GetRequest()))
     response, err := client.Get(url)
-    data.SaveLog(url, "A.Glansbeek of% P.Kompier", cx.GetRequest())
+    data.SaveLog(url, "A.Glansbeek of P.Kompier", cx.GetRequest())
     
     // Error check
     if err != nil {
