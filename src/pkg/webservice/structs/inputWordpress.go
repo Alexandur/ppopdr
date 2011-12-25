@@ -27,20 +27,56 @@ package structs
 		Post Post
 	}
 	
+	// Hoofd structuur van categorieen
+	type WordpressCategory struct {
+		Status string
+		Count int
+		Posts []Post
+	}
+	
+	// Hoofd structuur van hoofd categorieen
+	type WordpressHeadCategory struct {
+		Status string
+		Count int
+		Categories []Category
+	}
+	
+	// Hoofd structuur van response van een CREATE
+	type WordpressCommentResponse struct {
+		Status string
+	}
+	
 	// Structuur van post
 	type Post struct {
 		Id int
 		Title string
+		Content string
 		Date string
-		Author struct {
-			First_name string
-			Last_name string
-		}
+		Status string
+		Author Author
 		Comment_count int
+		Categories []Category
+		Comments []Comment
 	}
 	
-/* COMMENTS */
-	// Hoofd structuur van response van een CREATE
-	type WordpressCommentResponse struct {
-		Status string
+	// Comment
+	type Comment struct {
+		Id int
+		Name string
+		Date string
+		Content string
+		Author Author
+	}
+	
+	// Author
+	type Author struct {
+		First_name string
+		Last_name string
+	}
+	
+	// Categorieen
+	type Category struct {
+		Id int
+		Title string
+		Parent int
 	}

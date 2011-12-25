@@ -13,21 +13,30 @@ package structs
 
 // Artikelen output
 type Article struct {
-	Id string
+	Id int
 	Title string
 	Author string
 	Date string
+	Content string
 	TipsCount int
+	Category string
+	Tips []Tips
 }
 
-// Gebruiker output
-type User struct {
-	Id   string
+type Tips struct {
 	Name string
-	Age  int
+	Date string
+	Content string
+	Author string
 }
 
 // Tips toevoeging status response
 type TipResponse struct {
 	Status string
+}
+
+// Categorieen
+type HeadCategory struct {
+	Id int
+	Title string
 }

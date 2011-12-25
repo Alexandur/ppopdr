@@ -77,6 +77,10 @@ func GetLogs(r *http.Request) (os.Error, interface{}) {
 /**
  * Delete alle logs
  *
+ * Ziet er raar uit, maar dit is "de" manier in appengine
+ * Bron: stackoverflow.com/questions/1062540/how-to-delete-all-datastore-in-google-app-engine (python)
+ * "The best approach is the remote API method as suggested by Nick, he's an App Engine engineer from Google"
+ * 
  * @author A. Glansbeek en P. Kompier
  * @version 1.0
  * @date 2011-12-22

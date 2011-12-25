@@ -12,6 +12,7 @@ import (
 	"goweb"
 	"appengine"
 	"appengine/urlfetch"
+	"appengine/user"
 	"io/ioutil"
 	"json"
 	"http"
@@ -35,9 +36,19 @@ func CallWordpressApi (cx *goweb.Context, v interface{}, callfunction string, pa
 	var contents []uint8
 	
 	url := createURL(callfunction, params)
-    client := urlfetch.Client(appengine.NewContext(cx.GetRequest()))
+	c := appengine.NewContext(cx.GetRequest())
+    client := urlfetch.Client(c)
     response, err := client.Get(url)
-    data.SaveLog(url, "A.Glansbeek of P.Kompier", cx.GetRequest())
+    
+    u := user.Current(c)
+    var name string
+    if u == nil {
+        name = "Gast"
+    } else {
+    	name = u.String()
+    }
+    
+    data.SaveLog(url, name, cx.GetRequest())
     
     // Error check
     if err != nil {
@@ -61,7 +72,7 @@ func CallWordpressApi (cx *goweb.Context, v interface{}, callfunction string, pa
   
   	// Error check
   	if err != nil {
-  		cx.RespondWithErrorMessage("Kan json niet parsen", http.StatusBadRequest)
+  		cx.RespondWithErrorMessage("Kan json niet parsen err: " + err.String(), http.StatusBadRequest)
     	return
     }
 }
@@ -72,6 +83,7 @@ func CallWordpressApi (cx *goweb.Context, v interface{}, callfunction string, pa
  * @author A. Glansbeek en P. Kompier
  * @params string functie naam van API wordpress
  * @params map[string]string map waarin params staan
+ * @return string url
  */
 func createURL (callfunction string, params map[string]string) string {
 	return URL_WORDPRESS + callfunction + "/" + parseParams(params)
@@ -82,6 +94,7 @@ func createURL (callfunction string, params map[string]string) string {
  * 
  * @author A. Glansbeek en P. Kompier
  * @params map[string]string map waarin params staan
+ * @return string params
  */
 func parseParams (params map[string]string) string {
 	s := ""

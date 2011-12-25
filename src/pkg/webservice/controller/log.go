@@ -5,7 +5,6 @@
  * @version 1.0
  * @date 2011-12-20
  */
- 
 package controller
 
 import (
@@ -20,9 +19,7 @@ var logTemplate = template.Must(template.ParseFile("webservice/views/log.html"))
 type LogController struct{}
 
 /*
- * Ziet er raar uit, maar dit is "de" manier in appengine
- * Bron: stackoverflow.com/questions/1062540/how-to-delete-all-datastore-in-google-app-engine (python)
- * The best approach is the remote API method as suggested by Nick, he's an App Engine engineer from Google
+ * Verwijder alle log entries
  *
  * @author A. Glansbeek en P. Kompier
  * @version 1.0
@@ -73,7 +70,7 @@ func (cr *LogController) Read(input string, cx *goweb.Context) {
 		if err := bbbTemplate.Execute(cx.GetResponseWriter(), nil); err != nil {
 	        cx.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
 	    }
-	}
+	} 
 }
 
 func (cr *LogController) Update(id string, cx *goweb.Context) {

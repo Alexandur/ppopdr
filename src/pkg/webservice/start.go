@@ -9,10 +9,16 @@ import (
 
 func init() {
     // Articles
+	goweb.MapRest("/article/category/{category_id}", new(controller.ArticleController))
+	
+	// Articles
 	goweb.MapRest("/article", new(controller.ArticleController))
 	
 	// Comments
 	goweb.MapRest("/comment", new(controller.CommentController))
+	
+	// Categories 
+	goweb.MapRest("/category", new(controller.CategoryController))
 	
 	// Logs
 	goweb.MapRest("/log", new(controller.LogController))
