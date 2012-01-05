@@ -1,26 +1,34 @@
 <html>
 <head>
-<title>Wake me up before you GO GO!</title>
+<style type="text/css">
+body {
+	font-family: Verdana, Arial;
+}
+</style>
+<title>Webservice Google GO</title>
 </head>
 <body>
-	<h2>
-		Mogelijke calls:
-	</h2>
-	<ul>
-		<li>GET <a href="/article/category/3">/article/category/{category_id}</a> (Alle artikelen per category [1..n])</li>
-		<li>GET <a href="/article">/article</a> (Alle artikelen)</li>
-		<li>GET <a href="/article/6">/article/{article_id}</a> (1 artikel met id [1..n])</li>
-		<li>POST <a href="/comment">/comment</a> (Maak een comment aan POST waarden: post_id, name, email en content)</li>
-		<li>GET <a href="/log">/log</a> (Laat de log zien)</li>
-		<li>DELETE <a href="/log">/log</a> (Leeg de log)</li>
+	<h3>Documentatie</h3>
+	<ul style="line-height:122%;">
+		<li><a href="/documentation/wadl" style="font-size: 18px;">WADL</a> Een variant op WSDL, WADL wordt vaker gebruikt voor REST webservices.</li>
+		<li><a href="/documentation" style="font-size: 18px;">Uitgebreide documentatie</a> </li>
+		<li><a href="https://chrome.google.com/webstore/detail/hgmloofddffdnphfgcellkdfbfbjeloo">Chrome REST plugin</a> Om POST en DELETE te testen</li>
+		<li>Mogelijke calls</li>
+		<ul style="font-size: 11px; line-height:108%;">
+	        <li>GET <a href="/article/category/3">/article/category/{category_id}</a> (Alle artikelen per category [1..n])</li>
+			<li>GET <a href="/article">/article</a> (Alle artikelen)</li>
+			<li>GET <a href="/article/6">/article/{article_id}</a> (1 artikel met id [1..n])</li>
+			<li>GET <a href="/category">/category</a> (Retourneer alle hoofdcategorien)</li>
+			<li>POST <a href="/comment">/comment</a> (Maak een comment aan POST waarden: post_id, name, email en content)</li>
+			<li>GET <a href="/log">/log</a> (Laat de log zien)</li>
+			<li>DELETE <a href="/log">/log</a> (Leeg de log)</li>
+			<li>GET <a href="/search/test">/search/{zoek_waarde}</a> (Zoek naar een waarde) </li>
+	    </ul>
 	</ul>
-	<p>Om POST en DELETE te testen is het makkelijk om REST plugin te gebruiken.</p>
-	<p><a href="https://chrome.google.com/webstore/detail/hgmloofddffdnphfgcellkdfbfbjeloo">Chrome REST plugin</a></p>
 	<br />
-	<br />
-	<h2>
-		Webservice is gemaakt in:
-	</h2>
+	<h3>
+		Webservice is gemaakt in
+	</h3>
 	<iframe class="youtube-player" type="text/html" width="640"
 		height="385" frameborder="0"
 		src="http://www.youtube.com/embed/pIgZ7gMze7A"></iframe>

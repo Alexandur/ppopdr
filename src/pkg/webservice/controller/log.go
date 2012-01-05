@@ -70,7 +70,9 @@ func (cr *LogController) Read(input string, cx *goweb.Context) {
 		if err := bbbTemplate.Execute(cx.GetResponseWriter(), nil); err != nil {
 	        cx.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
 	    }
-	} 
+	} else {
+		cx.RespondWithStatus(http.StatusForbidden)
+	}
 }
 
 func (cr *LogController) Update(id string, cx *goweb.Context) {

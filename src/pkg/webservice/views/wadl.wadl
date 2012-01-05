@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="IPR Webservice"/>
+  <resources base="http://aglansbeek.appspot.com">
+    <resource path="article/category/{category_id}" id="Article by category">
+      <doc xml:lang="en" title="Article by category"/>
+      <param name="category_id" default="3" type="xs:int" required="true" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Get article by category">
+        <doc xml:lang="en" title="Get article by category"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="article" id="Article">
+      <doc xml:lang="en" title="Article"/>
+      <resource path="{article_id}" id="Article by id">
+        <doc xml:lang="en" title="Article by id"/>
+        <param name="article_id" default="1" type="xs:int" required="true" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method name="GET" id="Get article by id">
+          <doc xml:lang="en" title="Get article by id"/>
+          <request/>
+          <response status="200 202">
+            <representation mediaType="application/json" element="tic:Response" xmlns:tic="http://aglansbeek.appspot.com/article/ticle_id%7D"/>
+          </response>
+        </method>
+      </resource>
+      <method name="GET" id="Get all article">
+        <doc xml:lang="en" title="Get all article"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="category" id="Category">
+      <doc xml:lang="en" title="Category"/>
+      <method name="GET" id="Get all head categories">
+        <doc xml:lang="en" title="Get all head categories"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="comment" id="Comment">
+      <doc xml:lang="en" title="Comment"/>
+      <method name="POST" id="Insert comment">
+        <doc xml:lang="en" title="Insert comment"/>
+        <request>
+          <param name="post_id" default="6" type="xs:int" required="true" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <param name="name" default="&quot;lex&quot;" type="xs:string" required="true" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <param name="email" default="&quot;&quot;" type="xs:string" required="true" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <param name="content" type="xs:string" required="true" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="log" id="Log">
+      <doc xml:lang="en" title="Log"/>
+      <method name="GET" id="Get all logs">
+        <doc xml:lang="en" title="Get all logs"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="text/html"/>
+        </response>
+      </method>
+      <method name="DELETE" id="Delete all">
+        <doc xml:lang="en" title="Delete all"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="text/html"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

@@ -23,6 +23,27 @@ func init() {
 	// Logs
 	goweb.MapRest("/log", new(controller.LogController))
 	
+	// Search
+	goweb.MapRest("/search", new(controller.SearchController))
+	
+	// Documentation wadl
+	goweb.MapFunc("/documentation/wadl", func(c *goweb.Context) {
+		var docTemplate = template.Must(template.ParseFile("webservice/views/wadl.wadl"))
+	
+		if err := docTemplate.Execute(c.ResponseWriter, nil); err != nil {
+	        c.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
+	    }
+	})
+	
+	// Documentation
+	goweb.MapFunc("/documentation", func(c *goweb.Context) {
+		var docTemplate = template.Must(template.ParseFile("webservice/views/documentation.html"))
+	
+		if err := docTemplate.Execute(c.ResponseWriter, nil); err != nil {
+	        c.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
+	    }
+	})
+	
 	// Index
 	goweb.MapFunc("/", func(c *goweb.Context) {
 		var indexTemplate = template.Must(template.ParseFile("webservice/views/index.html"))

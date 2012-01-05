@@ -16,17 +16,6 @@ import (
 
 type CategoryController struct{}
 
-
-/**
- * GET artikel met id [1..n], retourneer een artikel
- *
- * @author A. Glansbeek en P. Kompier
- * @version 1.0
- * @date 2011-12-18
- */
-func (cr *CategoryController) Read(id string, cx *goweb.Context) {
-}
-
 /**
  * Retourneer hoofd categorieen
  *
@@ -53,6 +42,10 @@ func (cr *CategoryController) ReadMany(cx *goweb.Context) {
 /**
  * Onderstaande functies worden nog niet gebruikt. Nog niet nodig gehad.
  */
+func (cr *CategoryController) Read(id string, cx *goweb.Context) {
+	cx.RespondWithStatus(http.StatusForbidden)
+}
+ 
 func (cr *CategoryController) Create(cx *goweb.Context) {
 	cx.RespondWithStatus(http.StatusForbidden)
 }
