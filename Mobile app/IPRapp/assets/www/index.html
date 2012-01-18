@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>My Page</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/phonegap-1.2.0.js"></script>
+	<script type="text/javascript" src="js/pages.js"></script>
+	<link rel="stylesheet" href="css/main.css" />
+</head> 
+<body onload="onLoad();"> 
+
+<!-- HOMEPAGE -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+            <h1>IPR app</h1><a href="#info" data-icon="info">info</a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		
+		<div id="searchdiv">
+	    	<input type="text" name="search" id="searchBox" value="Zoeken.."  />
+	    	<input type="button" data-icon="search" name="searchButton" id="searchButton" value="Zoek" data-inline="true" />
+		</div>	
+		
+		<div class="columns">
+			<a class="button" title="hcats" data-role="button">Hoofd Categorieën</a>
+			<a href="#bkmrks" data-role="button">Bladwijzers</a>
+			<a href="#new" data-role="button">Nieuw</a>
+			<a href="#mytips" data-role="button">Mijn tips</a>
+			<a href="#profile" data-role="button">Mijn profiel</a>
+		</div>
+        
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="info">
+	<div data-role="header">
+		<a class="previous" data-icon="arrow-l">Vorige</a><h1>Info</h1><a href="#home" data-icon="home">Home</a>
+	</div>
+	
+	<div data-role="content">
+		<h2>Deze app</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur <strong>adipiscing</strong> elit. Donec eu velit a <a href="#">nunc egestas</a> cursus vel ac diam. Pellentesque sed felis in nisi convallis accumsan. In mollis aliquet arcu, a lacinia lorem vestibulum ut. Maecenas id tortor enim. Cras erat est, iaculis vel interdum quis, rhoncus id nibh.</p>
+		<h2>Gebruik</h2>
+		<p>Hier staat geen informatie over het gebruik van deze app. Dit is slechts een prototype.</p>
+	</div>
+</div>
+
+</body>
+</html>
