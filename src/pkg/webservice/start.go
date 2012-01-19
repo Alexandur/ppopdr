@@ -35,6 +35,15 @@ func init() {
 	    }
 	})
 	
+	// WADL in XML voor XML viewer
+	goweb.MapFunc("/documentation/wadl/xml", func(c *goweb.Context) {
+		var docTemplate = template.Must(template.ParseFile("webservice/views/wadl.xml"))
+	
+		if err := docTemplate.Execute(c.ResponseWriter, nil); err != nil {
+	        c.RespondWithErrorMessage(err.String(), http.StatusInternalServerError)
+	    }
+	})
+	
 	// Documentation
 	goweb.MapFunc("/documentation", func(c *goweb.Context) {
 		var docTemplate = template.Must(template.ParseFile("webservice/views/documentation.html"))

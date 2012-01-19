@@ -143,6 +143,9 @@
 <li>
 <a href="#http://aglansbeek.appspot.com#Log">http://aglansbeek.appspot.com/log</a>
 </li>
+<li>
+<a href="#http://aglansbeek.appspot.com#Search">http://aglansbeek.appspot.com/search/{searchvalue}</a>
+</li>
 </ul>
 </li>
 <li>
@@ -181,6 +184,14 @@
 </li>
 <li>
 <a href="#N200F3">Status Code 200 - text/html<abbr title="{http://wadl.dev.java.net/2009/02} " />
+</a>
+</li>
+<li>
+<a href="#N20116">Status Code 200 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
+</a>
+</li>
+<li>
+<a href="#N2011D">Status Code 400 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
 </a>
 </li>
 </ul>
@@ -451,6 +462,53 @@
 </div>
 </div>
 </div>
+<div class="resource">
+<h3 id="http://aglansbeek.appspot.com#Search">Search</h3>
+<h6>resource-wide template parameters</h6>
+<table>
+<tr>
+<th>parameter</th>
+<th>value</th>
+<th>description</th>
+</tr>
+<tr>
+<td>
+<p>
+<strong>searchvalue</strong>
+</p>
+</td>
+<td>
+<p>
+<em>
+<a href="http://www.w3.org/TR/xmlschema-2/#string">string</a>
+</em>
+</p>
+<p>Default: <tt>searchvalue</tt>
+</p>
+</td>
+<td />
+</tr>
+</table>
+<h6>Methods</h6>
+<div class="methods">
+<div class="method">
+<h4 id="http://aglansbeek.appspot.com#search">GET</h4>
+<p>
+<em>available response representations:</em>
+</p>
+<ul>
+<li>
+<a href="#N20116">Status Code 200 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
+</a>
+</li>
+<li>
+<a href="#N2011D">Status Code 400 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <h2 id="representations">Representations</h2>
 <h3 id="N20025">Status Code 200 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
 </h3>
@@ -476,6 +534,10 @@
 <h3 id="N200E1">Status Code 200 - text/html<abbr title="{http://wadl.dev.java.net/2009/02} " />
 </h3>
 <h3 id="N200F3">Status Code 200 - text/html<abbr title="{http://wadl.dev.java.net/2009/02} " />
+</h3>
+<h3 id="N20116">Status Code 200 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
+</h3>
+<h3 id="N2011D">Status Code 400 - application/json<abbr title="{http://wadl.dev.java.net/2009/02} " />
 </h3>
 </body>
 </html>
